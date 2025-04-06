@@ -1,0 +1,28 @@
+package com.caritrainc.backend.database.model
+
+data class BusinessLimits(
+    var site: Int = 10,
+    var service: Int = 100,
+    var option: Int = 50,
+    var staff: Int = 100,
+    var schedule: Int = 25,
+    var timeoffs: Int = 100,
+    var memberships: Int = 25,
+    var qualifications: Int = 50,
+    var contacts: Int = 10,
+    var documents: Int = 25,
+    var discounts: Int = 100,
+    var addFees: Int = 10,
+    var taxLines: Int = 10,
+    var agreements: Int = 100,
+    var questions: Int = 100,
+    var serviceImages: Int = 50,
+    var widgets: Int = 250,
+    var addOn: Int = 100,
+    var templates: Int = 50,
+    var resources: Int = 1000,
+    var priceGroup: Int = 500,
+    var catalog: Int = 1000,
+    var maxCreditAllowed: Int = 500000,
+    var maxFormsAllowed: Int = 100,
+)

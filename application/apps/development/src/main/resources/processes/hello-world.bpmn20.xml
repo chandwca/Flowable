@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:flowable="http://flowable.org/bpmn"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
+             typeLanguage="http://www.w3.org/2001/XMLSchema"
+             expressionLanguage="http://www.w3.org/1999/XPath"
+             targetNamespace="http://www.flowable.org/processdef">
+
+    <process id="helloWorldProcess" name="Hello World Process" isExecutable="true">
+        <!-- Start Event -->
+        <startEvent id="startEvent" name="Start"/>
+
+        <!-- Sequence Flow from Start Event to Service Task -->
+        <sequenceFlow id="flow1" sourceRef="startEvent" targetRef="serviceTask"/>
+
+        <!-- Service Task to execute custom logic -->
+        <serviceTask id="serviceTask" name="Say Hello" flowable:class="com.caritrainc.backend.service.user.HelloService"/>
+        <serviceTask id="serviceTaskAdd" name="Say hi to flowable and Drools" flowable:class="com.caritrainc.backend.service.rule.UserEvaluateTaskService"/>
+
+        <!-- Sequence Flow from Service Task to End Event -->
+        <sequenceFlow id="flow2" sourceRef="serviceTask" targetRef="endEvent"/>
+
+        <!-- End Event -->
+        <endEvent id="endEvent" name="End"/>
+    </process>
+
+    <!-- BPMN Diagram Representation -->
+    <bpmndi:BPMNDiagram id="BPMNDiagram_helloWorldProcess">
+        <bpmndi:BPMNPlane bpmnElement="helloWorldProcess" id="BPMNPlane_helloWorldProcess">
+            <bpmndi:BPMNShape id="BPMNShape_startEvent" bpmnElement="startEvent">
+                <omgdc:Bounds x="100" y="100" width="36" height="36"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="BPMNShape_serviceTask" bpmnElement="serviceTask">
+                <omgdc:Bounds x="200" y="100" width="100" height="80"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="BPMNShape_endEvent" bpmnElement="endEvent">
+                <omgdc:Bounds x="350" y="100" width="36" height="36"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNEdge id="BPMNEdge_flow1" bpmnElement="flow1">
+                <omgdi:waypoint x="136" y="118"/>
+                <omgdi:waypoint x="200" y="118"/>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="BPMNEdge_flow2" bpmnElement="flow2">
+                <omgdi:waypoint x="300" y="118"/>
+                <omgdi:waypoint x="350" y="118"/>
+            </bpmndi:BPMNEdge>
+        </bpmndi:BPMNPlane>
+    </bpmndi:BPMNDiagram>
+
+</definitions>

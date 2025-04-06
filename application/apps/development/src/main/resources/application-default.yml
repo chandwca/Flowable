@@ -1,0 +1,89 @@
+spring:
+  application:
+    name: Caritra Backend
+  datasource:
+    url: jdbc:postgresql://localhost:5432/polaris
+    username: _polaris_admin
+    password: Make1t$Tr0ng
+    driver-class-name: org.postgresql.Driver
+  liquibase:
+    url: jdbc:postgresql://localhost:5432/polaris
+    username: _polaris_admin
+    password: Make1t$Tr0ng
+    driver-class-name: org.postgresql.Driver
+
+  data:
+    jdbc:
+      dialect: postgresql
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  security:
+    enable : false
+#    oauth2:
+#      resourceserver:
+#        jwt:
+#          issuer-uri: https://localhost:7095/oauth2/v2.0
+
+# swagger-ui custom path
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+#server:
+##  ssl:
+##      key-store: classpath:localhost.jks
+##      key-store-password: password
+##      key-alias: springbootnew
+##      key-store-type: JKS
+#  port: 8443
+server:
+  port: 8080
+  ssl:
+    enabled: false
+
+flowable:
+  rest:
+    enabled: true
+  ui:
+    enabled: true
+    security:
+      enabled: true
+      basic:
+        authentication: true
+        user: admin
+        password: admin
+#    modeler:
+#      ui:
+#        enable: true
+#        context-path : /flowable-modeler
+#        login-user: admin
+#        login-password: admin
+#    task:
+#      enable: true
+#    admin:
+#      enable: true
+  database-schema-update: true
+#  idm:
+#    enabled: true
+#    admin:
+#      user: admin
+#      password: admin
+
+
+
+
+#    app:
+#      ui:
+#        login-url: /flowable-idm/#/login
+#        logout-url: /flowable-idm/#/logout
+#        application-url: http://localhost:8888/flowable-modeler/
+
+#server:
+#  ssl:
+#    enabled: false
+#  port: 8080
+
